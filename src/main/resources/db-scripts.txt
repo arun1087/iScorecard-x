@@ -1,0 +1,24 @@
+CREATE TABLE batting_stats (
+batting_position INT(12) NOT NULL,
+did_not_bat VARCHAR(16) NOT NULL DEFAULT 'true',
+balls_faced INT(12) NOT NULL DEFAULT 0,
+runs_scored INT(12) NOT NULL DEFAULT 0,
+fours INT(12) NOT NULL DEFAULT 0,
+sixes INT(12) NOT NULL DEFAULT 0);
+
+CREATE TABLE bowling_stats (
+bowling_position INT(12) NOT NULL,
+did_not_bowl VARCHAR(16) NOT NULL DEFAULT 'true',
+overs_bowled INT(12) NOT NULL DEFAULT 0,
+balls_bowled_before_completing_over INT(12) NOT NULL DEFAULT 0,
+maidens INT(12) NOT NULL DEFAULT 0,
+runs_conceded INT(12) NOT NULL DEFAULT 0,
+wickets_taken INT(12) NOT NULL DEFAULT 0);
+
+CREATE TABLE match (
+match_id VARCHAR(255)NOT NULL,
+home_team_id VARCHAR(255) NOT NULL,
+away_team_id VARCHAR(255) NOT NULL,
+PRIMARY KEY (`match_id`),
+CONSTRAINT FK_TEAM_IDS FOREIGN KEY(home_team_id, away_team_id)
+					   REFERENCES TEAM);

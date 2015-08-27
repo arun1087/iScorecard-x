@@ -8,4 +8,7 @@ public class BowlingStatsForMatch {
     int bowlingPosition;
     int oversBowled;
     int ballsBowledBeforeCompletingOver;
+    int runsConceded;
+    int wicketsTaken;
+    int maidens;
 }
