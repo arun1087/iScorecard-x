@@ -1,11 +1,29 @@
-package com.iscorecard.model;
+package com.iscorecard.domain.model;
+
+import com.sun.istack.internal.NotNull;
+
+import javax.persistence.*;
 
 /**
  * Created by asabtharishi on 6/15/2015.
  */
+
+@Entity
+@Table(name = "MATCH_")
 public class Match {
+
+    @NotNull
+    @Column(name = "MATCH_ID")
     private String matchId;
+
+    @NotNull
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "match_", cascade = CascadeType.ALL)
+    @Column(name = "HOME_TEAM_ID")
     private Team homeTeam;
+
+    @NotNull
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "match_", cascade = CascadeType.ALL)
+    @Column(name = "AWAY_TEAM_ID)")
     private Team awayTeam;
 
     public String getMatchId() {
