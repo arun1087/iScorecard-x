@@ -43,6 +43,8 @@ dependencies {
     compile group: 'org.springframework', name:'spring-jms', version:'3.2.4.RELEASE'
     compile group: 'org.springframework', name: 'spring-aop', version:'3.1.0.RELEASE'
 
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:hibernateVersion
+
 
     compile group: 'org.springframework', name: 'spring-webmvc', version:springVersion
     compile group: 'org.springframework', name: 'spring-web', version:springVersion
