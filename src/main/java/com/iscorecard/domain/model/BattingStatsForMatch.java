@@ -1,6 +1,6 @@
 package com.iscorecard.domain.model;
 
-import com.sun.istack.internal.NotNull;
+import javax.validation.constraints.NotNull;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
