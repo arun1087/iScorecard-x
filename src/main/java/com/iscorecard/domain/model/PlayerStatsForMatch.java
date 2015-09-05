@@ -10,29 +10,17 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "PLAYER_STATS")
-public class PlayerStatsForMatch {
+public class PlayerStatsForMatch extends Model {
 
     @NotNull
-    @Column(name = "PLAYER_STATS_ID")
-    private String playerStatsForMatchId;
-
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "playerStatsForMatch", cascade = CascadeType.ALL)
-    @Column(name = "BOWLING_STATS")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "playerStatsForMatch", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "BOWLING_STATS_ID")
     private BowlingStatsForMatch bowlingStatsForMatch;
 
     @NotNull
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "playerStatsForMatch", cascade = CascadeType.ALL)
-    @Column(name = "BOWLING_STATS")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "playerStatsForMatch", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "BOWLING_STATS_ID")
     private BattingStatsForMatch battingStatsForMatch;
-
-    public String getPlayerStatsForMatchId() {
-        return playerStatsForMatchId;
-    }
-
-    public void setPlayerStatsForMatchId(String playerStatsForMatchId) {
-        this.playerStatsForMatchId = playerStatsForMatchId;
-    }
 
     public BowlingStatsForMatch getBowlingStatsForMatch() {
         return bowlingStatsForMatch;

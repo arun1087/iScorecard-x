@@ -8,22 +8,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "PLAYER")
-public class Player {
-
-    @Column(name = "PLAYER_ID")
-    private String playerId;
+public class Player extends Model {
 
     @Column(name = "PLAYER_STATS_ID")
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "player", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
     private PlayerStatsForMatch playerStatsForMatch;
-
-    public String getPlayerId() {
-        return playerId;
-    }
-
-    public void setPlayerId(String playerId) {
-        this.playerId = playerId;
-    }
 
     public PlayerStatsForMatch getPlayerStatsForMatch() {
         return playerStatsForMatch;

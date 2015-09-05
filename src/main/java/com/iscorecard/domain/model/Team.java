@@ -8,22 +8,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "TEAM")
-public class Team {
+public class Team extends Model {
 
-    @Column(name = "TEAM_ID")
-    private String teamId;
 
     @Column(name = "PLAYER_ID")
     @OneToMany(mappedBy = "team", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Player [] player = new Player[11];
-
-    public String getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(String teamId) {
-        this.teamId = teamId;
-    }
 
     public Player[] getPlayer() {
         return player;
@@ -31,5 +21,27 @@ public class Team {
 
     public void setPlayer(Player[] player) {
         this.player = player;
+    }
+
+    @OneToOne(optional = false)
+    private Game match;
+
+    public Game getMatch() {
+        return match;
+    }
+
+    public void setMatch(Game match) {
+        this.match = match;
+    }
+
+    @OneToOne(optional = false)
+    private Game game;
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 }

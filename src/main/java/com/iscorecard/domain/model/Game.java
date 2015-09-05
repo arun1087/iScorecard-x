@@ -9,30 +9,20 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "MATCH_")
-public class Match {
+@Table(name = "GAME")
+public class Game extends Model {
+
 
     @NotNull
-    @Column(name = "MATCH_ID")
-    private String matchId;
-
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "match_", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
     @Column(name = "HOME_TEAM_ID")
     private Team homeTeam;
 
     @NotNull
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "match_", cascade = CascadeType.ALL)
-    @Column(name = "AWAY_TEAM_ID)")
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "AWAY_TEAM_ID")
     private Team awayTeam;
 
-    public String getMatchId() {
-        return matchId;
-    }
-
-    public void setMatchId(String matchId) {
-        this.matchId = matchId;
-    }
 
     public Team getHomeTeam() {
         return homeTeam;
@@ -49,5 +39,4 @@ public class Match {
     public void setAwayTeam(Team awayTeam) {
         this.awayTeam = awayTeam;
     }
-
 }

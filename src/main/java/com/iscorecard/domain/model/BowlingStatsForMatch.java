@@ -12,11 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "BOWLING_STATS")
-public class BowlingStatsForMatch {
-
-    @NotNull
-    @Column(name = "BOWLING_STATS_ID")
-    private String bowlingStatsId;
+public class BowlingStatsForMatch extends Model {
 
     @NotNull
     @Column(name = "DID_NOT_BOWL")
@@ -45,14 +41,6 @@ public class BowlingStatsForMatch {
     @NotNull
     @Column(name = "MAIDENS")
     private int maidens;
-
-    public String getBowlingStatsId() {
-        return bowlingStatsId;
-    }
-
-    public void setBowlingStatsId(String bowlingStatsId) {
-        this.bowlingStatsId = bowlingStatsId;
-    }
 
     public int getBallsBowledBeforeCompletingOver() {
         return ballsBowledBeforeCompletingOver;
